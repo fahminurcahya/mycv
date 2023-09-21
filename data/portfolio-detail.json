@@ -1,0 +1,112 @@
+[
+    {
+        "title": "E-Ticketing",
+        "description": "",
+        "category": "Project",
+        "client":"Kementrian Investasi/BKPM",
+        "year":"2023",
+        "pathName":"/e-ticketing",
+        "url":"-",
+        "technology":[
+            "Node Js (Express Js)",
+            "Mysql",
+            "Nginx"
+        ],
+        "img" : [
+           "/images/bkpm/img1.jpg",
+           "/images/bkpm/img2.jpg"
+        ],
+        "features": [
+            "Registrasi E-Ticketing",
+            "Send Email (success registrasi and ticket)",
+            "Dashboard Client for view barcode",
+            "Data table peserta",
+            "Scann barcode & verifikasi data"
+        ]
+    },
+    {
+        "title": "Staycation",
+        "description": "",
+        "category": "Web Apps",
+        "client":"Online Course - Build with Angga",
+        "year":"2022",
+        "pathName":"/staycation",
+        "url":"-",
+        "technology":[
+            "Node Js (Express Js)",
+            "React Js",
+            "MongoDB"
+        ],
+        "img" : [
+            "/images/staycation/img1.jpg",
+            "/images/staycation/img2.jpg"        
+        ],
+        "features": [
+            "Dashboard backoffice (management product)",
+            "Booking tempat"
+        ]
+    },
+    {
+        "title": "MeetDoctor",
+        "description": "",
+        "category": "Web Apps",
+        "client":"Online Course - Build with Angga",
+        "year":"2022",
+        "pathName":"/apointment",
+        "url":"-",
+        "technology":[
+            "PHP (Laravel 8)",
+            "MySQl"
+        ],
+        "img" : [
+            "/images/staycation/img1.jpg",
+            "/images/staycation/img2.jpg"        
+        ],
+        "features": [
+            "Dashboard backoffice (management product)",
+            "Booking tempat"
+        ]
+    },
+    {
+        "title": "Sarang Apps",
+        "description": "",
+        "category": "Mobile Apps",
+        "client":"Online Course - Build with Angga",
+        "year":"2022",
+        "pathName":"/sarangapps",
+        "url":"-",
+        "technology":[
+            "Flutter"
+        ],
+        "img" : [
+            "/images/staycation/img1.jpg",
+            "/images/staycation/img2.jpg"        
+        ],
+        "features": [
+            "Find People",
+            "tambah orang yang dirasa cocok"
+        ]
+    },
+    {
+        "title": "Whatsapp Sitcker Apps",
+        "description": "",
+        "category": "Mobile Apps",
+        "client":"My Project",
+        "year":"2022",
+        "pathName":"/stikerwa",
+        "url":"-",
+        "technology":[
+            "Java",
+            "Admob",
+            "Firebase Analitict"
+        ],
+        "img" : [
+            "/images/staycation/img1.jpg",
+            "/images/staycation/img2.jpg"        
+        ],
+        "features": [
+            "Find People",
+            "tambah orang yang dirasa cocok"
+        ]
+    }
+]

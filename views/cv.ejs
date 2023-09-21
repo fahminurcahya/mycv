@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <title>Responsive resume cv</title>
+</head>
+
+<body>
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="#" class="nav__logo">Fahmi</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="bx bx-home"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#profile" class="nav__link">
+                            <i class="bx bx-user"></i>Profile
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#education" class="nav__link">
+                            <i class="bx bx-book"></i>Education
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class="bx bx-receipt"></i>Skills
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#experience" class="nav__link">
+                            <i class="bx bx-briefcase-alt"></i>Experience
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#certificates" class="nav__link">
+                            <i class="bx bx-award"></i>Certificates
+                        </a>
+                    </li>
+                    <!-- <li class="nav__item">
+                        <a href="#references" class="nav__link">
+                            <i class="bx bx-link-external"></i>References
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="nav_toggle" id="nav-toggle">
+                <i class="bx bx-grid-alt"></i>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="l-main bd-container">
+        <!-- All elements within this div, is generated in PDF -->
+        <div class="resume" id="area-cv">
+            <div class="resume__left">
+                <!--========== HOME ==========-->
+                <section class="home " id="home">
+                    <div class="home__container section bd-grid">
+                        <div class="home__data bd-grid">
+                            <img src="assets/img/profile2.jpg" alt="" class="home__img">
+                            <h1 class="home__title">Fahmi <b>Nurcahya</b></h1>
+                            <h3 class="home__profession">Software Engineer</h3>
+                            <div>
+                                <a href="#" id="resume-button" class="home__button home__button-movil">Download</a>
+                            </div>
+                        </div>
+                        <div class="home__address bd-grid">
+                            <span class="home__information">
+                                <i class="bx bx-map home__icon"></i> Karawang, Indonesia.
+                            </span>
+                            <span class="home__information">
+                                <i class="bx bx-envelope home__icon"></i> fahminurcahya@gmail.com &nbsp
+                            </span>
+                            <span class="home__information">
+                                <i class="bx bxl-whatsapp home__icon"></i> +6285718456591
+                            </span>
+                        </div>
+                        <div class="bd-grid">
+                            <button class="whatsapp__button" onclick="copyEmail()" style="text-align: center; padding: .5rem .2rem;
+                                "><i class="bx bx-copy button__icon"></i>Copy Email</button>
+                            <a href="https://wa.me/6285718456591" class="whatsapp__button" style="text-align: center; padding: .5rem .2rem;
+                                "><i class="bx bxl-whatsapp button__icon"></i> Send Whatsapp</a>
+                        </div>
+                    </div>
+
+                    <!-- Theme change button -->
+                    <i class="bx bx-moon change-theme" title="Theme" id="theme-button"></i>
+
+                    <!-- Button to generate and download the pdf. Available for desktop. -->
+                    <!-- <i class="generate-pdf bx bx-download" id="resume-button" title="Generate PDF"></i> -->
+
+                </section>
+                <!--========== PROFILE ==========-->
+                <section class="profile section" id="profile">
+                    <h2 class="section-title">PROFILE</h2>
+                    <p class="profile__description">3+ years of experience as a Software Engineer, I excel in designing,
+                        developing, and managing efficient and reliable software solutions.<br>
+                        I possess a profound understanding of modern programming languages, software architecture, and
+                        best practices in application development.<br>
+                        I have actively contributed to high-quality, complex software development projects that meet
+                        client needs.<br>
+                        Furthermore, I am committed to continuous learning and growth within the realm of technology.
+                    </p>
+                </section>
+
+                <!--========== SOCIAL ==========-->
+                <section class="social section">
+                    <h2 class="section-title">SOCIAL</h2>
+                    <div class="social__container bd-grid">
+                        <a href="https://github.com/fahminurcahya" target="__blank" class="social__link">
+                            <i class="bx bxl-github social__icon"></i>fahminurcahya
+                        </a>
+                        <a href="https://gitlab.com/fahminurcahya" target="__blank" class="social__link">
+                            <i class="bx bxl-gitlab social__icon"></i>fahminurcahya
+                        </a>
+                        <a href="https://www.instagram.com/fahminurcahya/" target="__blank" class="social__link">
+                            <i class="bx bxl-instagram social__icon"></i>@fahminurcahya
+                        </a>
+                    </div>
+                </section>
+
+
+
+                <!--========== EDUCATION ==========-->
+                <section class="education section" id="education">
+                    <h2 class="section-title">EDUCATION</h2>
+                    <div class="education__container bd-grid">
+                        <div class="education__content">
+                            <div class="education__time">
+                                <div class="education__rounder"></div>
+                            </div>
+                            <div class="education__data bd-grid">
+                                <h3 class="education__title">Bechelor of Informatic Engineering</h3>
+                                <div class="education__studies">University Of Singaperbangsa Karawang</div>
+                                <div class="education__year">2015-2019</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!--========== SKILLS  ==========-->
+                <!-- <section class="skills section" id="skills">
+                    <h2 class="section-title">SKILL</h2>
+                    <div class="skills__content bd-grid">
+                        <ul class="skills__data">
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                        </ul>
+                        <ul class="skills__data">
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                        </ul>
+                    </div>
+
+                </section> -->
+
+            </div>
+
+            <div class="resume__right">
+                <!--========== EXPERIENCE ==========-->
+                <section class="experience section" id="experience">
+                    <h2 class="section-title-secondary">Experience</h2>
+
+                    <div class="experience__container bd-grid">
+                        <div class="experience__content">
+                            <div class="experience__time">
+                                <span class="experience__rounder"></span>
+                                <span class="experience__line"></span>
+                            </div>
+                            <div class="experience__data bd-grid">
+                                <h3 class="experience__title s3">MIDDLEWARE DEVELOPER</h3>
+                                <span class="experience__company"> July 2021 - July 2023 | PT Xsis Mitra Utama,
+                                    placement
+                                    at PT Bank Rakyat Indonesia</span>
+                                <p class="experience__description s1">
+                                    - Created RestAPI service in ESB to integrate the requirements between BRI channels
+                                    and third-party entities.<br>
+                                    - Integrated applications with various formats such as JSON, ISO, and WSDL.<br>
+                                    - Developed stored procedures in SQL Server.<br>
+                                    - Acted as a dedicated middleware programmer for the BRI insurance platform
+                                    (BRISURF).<br>
+                                    - Designed the system's application flow, created API specification documentation,
+                                    and conducted testing.<br>
+                                    - Developed dashboard applications using React.js and Express.js.<br>
+                                    - Conducted problem-solving and monitored services using Kibana.<br>
+                                    - Implemented technologies such as Redis, Kafka, Elasticsearch, Bitbucket, and
+                                    Bamboo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="experience__content">
+                            <div class="experience__time">
+                                <span class="experience__rounder"></span>
+                                <span class="experience__line"></span>
+                            </div>
+                            <div class="experience__data bd-grid">
+                                <h3 class="experience__title s3">FRONTEND DEVELOPER</h3>
+                                <span class="experience__company">July 2020 - Juni 2021 | PT Xsis Mitra Utama,
+                                    placement
+                                    at PT AZEC Indonesia Management Service</span>
+                                <p class="experience__description s1">- Developed several dashboard applications using
+                                    Golang, AngularJS, and Docker as containers for the applications.<br>
+                                    - Enhanced new features on existing dashboards using Java.<br>
+                                    - Created API services using Golang as the programming language on the server side,
+                                    with PostgreSQL as the database.</p>
+                            </div>
+                        </div>
+                        <div class="experience__content">
+                            <div class="experience__time">
+                                <span class="experience__rounder"></span>
+                            </div>
+                            <div class="experience__data bd-grid">
+                                <h3 class="experience__title s3">BOOTCAMP JAVA DEVELOPER</h3>
+                                <span class="experience__company">December 2019 - Juni 2020 | PT Xsis Mitra Utama</span>
+                                <p class="experience__description s1">Bootcamp as a java developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!--========== CERTIFICATES ==========-->
+                <section class="skills section" id="skills">
+                    <h2 class="section-title-secondary">SKILLS</h2>
+                    <div class="skills__container bd-grid">
+                        <div class="skills__content">
+                            <h3 class="skills__title s3">Web Apps</h3>
+                            <p class="skills__description s1">HTML5 / CSS / Boostrap<br>Javascript / Typescript /
+                                ReactJs / AngularJS (ES5/ES6)<br>
+                                Node Js / Express Js (ES5/ES6)<br>
+                                PHP (Laravel)<br>
+                                Golang<br>
+                                Java (Spring Boot)<br>
+                                RDBMS(MySQL, SQL Server, PostgreSQL)<br>
+                                MongoDB<br>
+                                Redis
+                            </p>
+                        </div>
+
+                        <div class="skills__content">
+                            <h3 class="skills__title s3">Mobile Apps</h3>
+                            <p class="skills__description s1">
+                                Dart / Flutter framework<br>
+                                Kotlin<br>
+                                Java
+                            </p>
+                        </div>
+                        <div class="skills__content">
+                            <h3 class="skills__title s3">Others</h3>
+                            <p class="skills__description s1">
+                                Git, Docker, Microservices, Product Software AG, Figma / Canva / Adobe Ilustrator,
+                                Firebase, Push Notofication, Adsanse Mobile
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!--========== CERTIFICATES ==========-->
+                <section class="certificate section" id="certificates">
+                    <h2 class="section-title-secondary">PORTOFOLIO & CERTIFICATES</h2>
+                    <div class="certificates__container bd-grid">
+                        <a class="portfolio__button" style="text-align: center; padding: .5rem .2rem"
+                            href="/#portfolio">Show Portofolio</a>
+                    </div>
+                </section>
+
+                <!--========== REFERENCES ==========-->
+                <!-- <section class="references section" id="references">
+                    <h2 class="section-title">References</h2>
+                    <div class="references__container bd-grid">
+                        <div class="references__content bd-grid">
+                            <span class="references__subtitle">Sr.adadbj</span>
+                            <h3 class="references__title">Mr.adad</h3>
+                            <ul class="references__contact">
+                                <li>Phone :0890179729819</li>
+                                <li>Email :adaodad@d.ada</li>
+
+                            </ul>
+                        </div>
+                        <div class="references__content bd-grid">
+                            <span class="references__subtitle">Sr.adadbj</span>
+                            <h3 class="references__title">Mr.adad</h3>
+                            <ul class="references__contact">
+                                <li>Phone :0890179729819</li>
+                                <li>Email :adaodad@d.ada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section> -->
+
+                <!--========== LANGUAGES ==========-->
+                <!-- <section class="languages section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages__container">
+                        <ul class="languages__content bd-grid">
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                        </ul>
+                    </div>
+                </section> -->
+
+                <!--========== INTERESTS ==========-->
+                <!-- <section class="interests section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="interests__container bd-grid">
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                    </div>
+                </section> -->
+            </div>
+        </div>
+        <br>
+
+    </main>
+
+
+
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+    </a>
+
+    <!--========== HTML2PDF ==========-->
+    <script src="/assets/js/html2pdf.bundle.min.js"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
