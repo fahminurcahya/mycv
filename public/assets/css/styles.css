@@ -413,6 +413,8 @@ img{
   display: inline-block;
   border: 2px solid var(--text-color);
   color: var(--title-color);
+  background-color: transparent;
+  cursor: pointer;
   padding: 1rem 2rem;
   border-radius: .25rem;
   transition: .3s;

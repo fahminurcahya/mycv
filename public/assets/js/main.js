@@ -122,7 +122,7 @@ function generateResume() {
 
 // When the button is clicked, it executes the three functions
 resumeButton.addEventListener("click", () => {
-  scaleCV();
+  // scaleCV();
 
   let selectedTheme = localStorage.getItem("selected-theme");
   let dynamicURL = "/pdf";
@@ -133,9 +133,10 @@ resumeButton.addEventListener("click", () => {
   // Set the href attribute to the dynamic URL
   a.href = dynamicURL;
   a.download = "CV-Fahmi Nurcahya.pdf";
+  a.target = "_blank";
 
   a.click();
-  setTimeout(removeScale, 5000);
+  // setTimeout(removeScale, 5000);
 });
 
 const copyText = "fahminurcahya@gmail.com";

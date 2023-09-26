@@ -60,7 +60,7 @@
                         <h1 class="home__title"><b><%= data.name %></b></h1>
                         <h3 class="home__profession"><%= data.title %></h3>
                         <div>
-                            <a href="" id="resume-button" class="home__button home__button-movil">Download</a>
+                            <button id="resume-button" class="home__button home__button-movil">Download</button>
                         </div>
                     </div>
                     <div class="home__address bd-grid">
@@ -238,8 +238,9 @@
                 <h2 class="section-title-secondary">PORTOFOLIO & CERTIFICATES</h2>
                 <div class="certificates__container bd-grid">
                     <a class="portfolio__button" style="text-align: center; padding: .5rem .2rem"
-                        href="/#portfolio">Show
+                        href="<%=baseUrl%>/#portfolio" target="__blank">Show
                         Portofolio</a>
+
                 </div>
             </section>
 
