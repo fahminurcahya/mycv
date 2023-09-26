@@ -87,6 +87,9 @@ body.scale-cv{
   --normal-font-size: .813rem;
   --small-font-size: .75rem;
   --smaller-font-size: .688rem;
+  font-weight: var(--font-medium);
+
+  
 }
 
 /*========== Generate PDF button ==========*/
@@ -112,16 +115,21 @@ body.scale-cv{
   display: none;
 }
 
+/* .scale-cv p {
+  font-weight: var(--font-medium);
+
+} */
+
 .scale-cv .new__page{
   display: block;
 }
 
 .scale-cv .bd-container {
-  max-width: 595px;
+  min-width: 100%;
 }
 
 .scale-cv .section{
-  padding: 1.5rem  0 .80rem;
+  padding: 1.5rem  0 0;
 }
 
 .scale-cv .section-title,
@@ -200,7 +208,7 @@ body.scale-cv{
 
 body {
   margin: 0 0 var(--header-height) 0; 
-  padding: 0;
+  /* padding: 0; */
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
@@ -648,10 +656,10 @@ img{
 }
 
 /* Classes modified for large screen size */
-@media screen and (min-width: 968px) {
+/* @media screen and (min-width: 968px) { */
 
   body {
-    margin: 3rem 0;
+    /* margin: 3rem 0; */
     --title-color: #fff;
     --title-color-secondary: #173b6c;
     --text-color: #a8a9b4;
@@ -718,17 +726,16 @@ img{
     display: none;
   }
 
+  .experience__company  h5 {
+    /* font-size: 16px; */
+    background: #e4edf9;
+    color: #03030a;
+    padding: 5px 15px;
+    display: inline-block;
+    /* font-weight: 600; */
+    margin-bottom: 10px;
+    margin-top: 3px;
   
-}
-
-.experience__company  h5 {
-  /* font-size: 16px; */
-  background: #e4edf9;
-  color: #03030a;
-  padding: 5px 15px;
-  display: inline-block;
-  /* font-weight: 600; */
-  margin-bottom: 10px;
-  margin-top: 10px;
-
-}
+  }
+  
+/* } */

@@ -1,16 +1,118 @@
 var express = require("express");
 const fs = require("fs");
+const ejs = require("ejs");
+const puppeteer = require("puppeteer");
+const path = require("path");
 
 const filePath = "data/portfolio-detail.json";
 
 var router = express.Router();
+
+const dataCV = {
+  name: "Fahmi Nurcahya",
+  title: "Software Engineer",
+  img: "/assets/img/profile2.jpg",
+  address: "Karawang, Indonesia.",
+  email: "fahminurcahya@gmail.com",
+  phone: "6285718456591",
+  profile: [
+    "3+ years of experience as a Software Engineer, I excel in designing, developing, and managing efficient and reliable software solutions.",
+    "I possess a profound understanding of modern programming languages, software architecture, and best practices in application development.",
+    "I have actively contributed to high-quality, complex software development projects that meet client needs.",
+    "Furthermore, I am committed to continuous learning and growth within the realm of technology.",
+  ],
+  social: [
+    {
+      className: "bxl-github",
+      url: "https://github.com/fahminurcahya",
+      username: "fahminurcahya",
+    },
+    {
+      className: "bxl-gitlab",
+      url: "https://gitlab.com/fahminurcahya",
+      username: "fahminurcahya",
+    },
+    {
+      className: "bxl-instagram",
+      url: "https://www.instagram.com/fahminurcahya/",
+      username: "@fahminurcahya",
+    },
+  ],
+  education: {
+    title: "Bechelor of Informatic Engineering",
+    studies: "University Of Singaperbangsa Karawang",
+    year: "2015-2019",
+  },
+  experience: [
+    {
+      position: "MIDDLEWARE DEVELOPER",
+      period: "July 2021 - July 2023",
+      client: "PT Xsis Mitra Utama, placement at PT Bank Rakyat Indonesia",
+      jobdesk: [
+        "Created RestAPI service in ESB to integrate the requirements between BRI channels and third-party entities.",
+        "Integrated applications with various formats such as JSON, ISO, and WSDL.",
+        "Developed stored procedures in SQL Server.",
+        "Acted as a dedicated middleware programmer for the BRI insurance platform (BRISURF).",
+        "Designed the system's application flow, created API specification documentation, and conducted testing.",
+        "Developed dashboard applications using React.js and Express.js.",
+        "Conducted problem-solving and monitored services using Kibana.",
+        "Implemented technologies such as Redis, Kafka, Elasticsearch, Bitbucket, and Bamboo.",
+      ],
+    },
+    {
+      position: "FRONTEND DEVELOPER",
+      period: "July 2020 - Juni 2021",
+      client:
+        "PT Xsis Mitra Utama, placement at PT AZEC Indonesia Management Service",
+      jobdesk: [
+        "Developed several dashboard applications using Golang, AngularJS, and Docker as containers for the applications.",
+        "Enhanced new features on existing dashboards using Java.",
+        "Created API services using Golang as the programming language on the server side, with PostgreSQL as the database.",
+      ],
+    },
+    {
+      position: "BOOTCAMP JAVA DEVELOPER",
+      period: "December 2019 - Juni 2020",
+      client: "PT Xsis Mitra Utama",
+      jobdesk: ["Bootcamp as a java developer"],
+    },
+  ],
+  skills: [
+    {
+      title: "Web Apps",
+      detail: [
+        "HTML5 / CSS / Boostrap",
+        "Javascript / Typescript / ReactJs / AngularJS ",
+        "Node Js / Express Js (ES5/ES6)",
+        "PHP (Laravel) / Golang / Java (Spring Boot)",
+        "RDBMS(MySQL, SQL Server, PostgreSQL) / MongoDB / Redis",
+      ],
+    },
+    {
+      title: "Mobile Apps",
+      detail: ["Dart / Flutter framework", "Kotlin / Java"],
+    },
+    {
+      title: "Others",
+      detail: [
+        "Git, Docker, Microservices, Product Software AG, Figma / Canva / Adobe Ilustrator, Firebase, Push Notofication, Adsanse Mobile",
+      ],
+    },
+  ],
+};
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index");
 });
 router.get("/cv", (req, res) => {
-  res.render("cv");
+  const baseUrl = req.protocol + "://" + req.get("host");
+  res.render("cv", { baseUrl: baseUrl, data: dataCV });
+});
+
+router.get("/cvv", (req, res) => {
+  const baseUrl = req.protocol + "://" + req.get("host");
+  res.render("template", { baseUrl: baseUrl, data: dataCV });
 });
 
 router.get("/portfolio/:name", (req, res) => {
@@ -212,6 +314,43 @@ router.get("/portfolio/:name", (req, res) => {
   } catch (error) {
     console.error("Error parsing JSON:", error);
   }
+});
+
+router.get("/pdf", async (req, res) => {
+  const paramValue = req.query.theme;
+
+  const baseUrl = req.protocol + "://" + req.get("host");
+  const browser = await puppeteer.launch({ headless: "new" });
+  const page = await browser.newPage();
+
+  const templatePath = "views/template.ejs";
+  const templateContent = await ejs.renderFile(templatePath, {
+    baseUrl: baseUrl,
+    data: dataCV,
+    theme: paramValue == "dark" ? "dark-theme" : "",
+  });
+  const compiledTemplate = ejs.compile(templateContent);
+
+  const html = compiledTemplate();
+
+  await page.setContent(html);
+
+  const pdfPath = "CV-FahmiNurcahya.pdf";
+  const pdf = await page.pdf({
+    path: pdfPath,
+    format: "A4",
+    margin: 0,
+    printBackground: true,
+  });
+
+  console.log(`PDF generated at ${pdfPath}`);
+
+  await browser.close();
+
+  res.contentType("application/pdf");
+  res.send(pdf);
+
+  // res.render("cv");
 });
 
 module.exports = router;

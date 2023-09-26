@@ -1,0 +1,321 @@
+<!--========== HEADER ==========-->
+<header class="l-header" id="header">
+    <nav class="nav bd-container">
+        <a href="#" class="nav__logo">Fahmi</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link active-link">
+                        <i class="bx bx-home"></i>Home
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#profile" class="nav__link">
+                        <i class="bx bx-user"></i>Profile
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#education" class="nav__link">
+                        <i class="bx bx-book"></i>Education
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link">
+                        <i class="bx bx-receipt"></i>Skills
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#experience" class="nav__link">
+                        <i class="bx bx-briefcase-alt"></i>Experience
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#certificates" class="nav__link">
+                        <i class="bx bx-award"></i>Certificates
+                    </a>
+                </li>
+                <!-- <li class="nav__item">
+                        <a href="#references" class="nav__link">
+                            <i class="bx bx-link-external"></i>References
+                        </a>
+                    </li> -->
+            </ul>
+        </div>
+        <div class="nav_toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+        </div>
+    </nav>
+
+</header>
+
+<main class="l-main bd-container">
+    <!-- All elements within this div, is generated in PDF -->
+    <div class="resume" id="area-cv">
+        <div class="resume__left">
+            <!--========== HOME ==========-->
+            <section class="home " id="home">
+                <div class="home__container section bd-grid">
+                    <div class="home__data bd-grid">
+                        <img src="<%=baseUrl + data.img%>" alt="" class="home__img">
+                        <h1 class="home__title"><b><%= data.name %></b></h1>
+                        <h3 class="home__profession"><%= data.title %></h3>
+                        <div>
+                            <a href="" id="resume-button" class="home__button home__button-movil">Download</a>
+                        </div>
+                    </div>
+                    <div class="home__address bd-grid">
+                        <span class="home__information">
+                            <i class="bx bx-map home__icon"></i> <%=data.address%>
+                        </span>
+                        <span class="home__information">
+                            <i class="bx bx-envelope home__icon"></i> <%=data.email%> &nbsp
+                        </span>
+                        <span class="home__information">
+                            <i class="bx bxl-whatsapp home__icon"></i> +<%=data.phone%>
+                        </span>
+                    </div>
+                    <div class="bd-grid">
+                        <button class="whatsapp__button" onclick="copyEmail()" style="text-align: center; padding: .5rem .2rem;
+                                "><i class="bx bx-copy button__icon"></i>Copy Email</button>
+                        <a href="https://wa.me/<%=data.phone%>" class="whatsapp__button" style="text-align: center; padding: .5rem .2rem;
+                                "><i class="bx bxl-whatsapp button__icon"></i> Send Whatsapp</a>
+                    </div>
+                </div>
+
+                <!-- Theme change button -->
+                <i class="bx bx-moon change-theme" title="Theme" id="theme-button"></i>
+
+                <!-- Button to generate and download the pdf. Available for desktop. -->
+                <!-- <i class="generate-pdf bx bx-download" id="resume-button" title="Generate PDF"></i> -->
+
+            </section>
+            <!--========== PROFILE ==========-->
+            <section class="profile section" id="profile">
+                <h2 class="section-title">PROFILE</h2>
+                <p class="profile__description">
+                    <% for(let i = 0; i<data.profile.length; i++){%>
+                    <%=data.profile[i]%>
+                    <% if (i < data.profile.length -1) {%>
+                    <br>
+                    <%}%>
+                    <%}%>
+                </p>
+            </section>
+
+            <!--========== SOCIAL ==========-->
+            <section class="social section">
+                <h2 class="section-title">SOCIAL</h2>
+                <div class="social__container bd-grid">
+                    <a href="<%=data.social[0].url%>" target="__blank" class="social__link">
+                        <i class="bx <%=data.social[0].className%> social__icon"></i><%=data.social[0].username%>
+                    </a>
+                    <a href="<%=data.social[1].url%>" target="__blank" class="social__link">
+                        <i class="bx <%=data.social[1].className%> social__icon"></i><%=data.social[1].username%>
+                    </a>
+                    <a href="<%=data.social[2].url%>" target="__blank" class="social__link">
+                        <i class="bx <%=data.social[2].className%> social__icon"></i><%=data.social[2].username%>
+                    </a>
+                </div>
+            </section>
+
+
+
+            <!--========== EDUCATION ==========-->
+            <section class="education section" id="education">
+                <h2 class="section-title">EDUCATION</h2>
+                <div class="education__container bd-grid">
+                    <div class="education__content">
+                        <div class="education__time">
+                            <div class="education__rounder"></div>
+                        </div>
+                        <div class="education__data bd-grid">
+                            <h3 class="education__title"><%=data.education.title%></h3>
+                            <div class="education__studies"><%=data.education.studies%></div>
+                            <div class="education__year"><%=data.education.year%></div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!--========== SKILLS  ==========-->
+            <!-- <section class="skills section" id="skills">
+                    <h2 class="section-title">SKILL</h2>
+                    <div class="skills__content bd-grid">
+                        <ul class="skills__data">
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                        </ul>
+                        <ul class="skills__data">
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                            <li class="skills__name">
+                                <span class="skills__circle"></span>Html
+                            </li>
+                        </ul>
+                    </div>
+
+                </section> -->
+
+        </div>
+
+        <div class="resume__right">
+            <!--========== EXPERIENCE ==========-->
+            <section class="experience section" id="experience">
+                <h2 class="section-title-secondary">Experience</h2>
+
+                <div class="experience__container bd-grid">
+                    <%for (let i = 0; i < data.experience.length; i++) {%>
+                    <div class="experience__content">
+                        <div class="experience__time">
+                            <span class="experience__rounder"></span>
+                            <% if (i < data.experience.length - 1) { %>
+                            <span class="experience__line"></span>
+                            <% } %>
+                        </div>
+                        <div class="experience__data bd-grid">
+                            <h3 class="experience__title s3"><%=data.experience[i].position%></h3>
+                            <span class="experience__company">
+                                <h5><%=data.experience[i].period%> </h5><br>
+                                <i><%=data.experience[i].client%></i>
+                            </span>
+                            <p class="experience__description s1">
+                                <% for (let j = 0; j < data.experience[i].jobdesk.length; j++ ) { %>
+                                - <%=data.experience[i].jobdesk[j]%>
+                                <br>
+                                <% } %>
+                            </p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+            </section>
+
+            <!--========== CERTIFICATES ==========-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title-secondary">SKILLS</h2>
+                <div class="skills__container bd-grid">
+                    <%for (let i = 0; i < data.skills.length; i++) {%>
+
+                    <div class="skills__content">
+                        <h3 class="skills__title s3"><%=data.skills[i].title%></h3>
+                        <p class="skills__description s1">
+                            <%for (let j = 0; j < data.skills[i].detail.length; j++) {%>
+                            <%=data.skills[i].detail[j]%> <br>
+                            <% } %>
+                        </p>
+                    </div>
+                    <% } %>
+
+
+                    <!-- <div class="skills__content">
+                        <h3 class="skills__title s3">Mobile Apps</h3>
+                        <p class="skills__description s1">
+                            Dart / Flutter framework<br>
+                            Kotlin<br>
+                            Java
+                        </p>
+                    </div>
+                    <div class="skills__content">
+                        <h3 class="skills__title s3">Others</h3>
+                        <p class="skills__description s1">
+                            Git, Docker, Microservices, Product Software AG, Figma / Canva / Adobe Ilustrator,
+                            Firebase, Push Notofication, Adsanse Mobile
+                        </p>
+                    </div> -->
+                </div>
+            </section>
+
+            <!--========== CERTIFICATES ==========-->
+            <section class="certificate section" id="certificates">
+                <h2 class="section-title-secondary">PORTOFOLIO & CERTIFICATES</h2>
+                <div class="certificates__container bd-grid">
+                    <a class="portfolio__button" style="text-align: center; padding: .5rem .2rem"
+                        href="/#portfolio">Show
+                        Portofolio</a>
+                </div>
+            </section>
+
+            <!--========== REFERENCES ==========-->
+            <!-- <section class="references section" id="references">
+                    <h2 class="section-title">References</h2>
+                    <div class="references__container bd-grid">
+                        <div class="references__content bd-grid">
+                            <span class="references__subtitle">Sr.adadbj</span>
+                            <h3 class="references__title">Mr.adad</h3>
+                            <ul class="references__contact">
+                                <li>Phone :0890179729819</li>
+                                <li>Email :adaodad@d.ada</li>
+
+                            </ul>
+                        </div>
+                        <div class="references__content bd-grid">
+                            <span class="references__subtitle">Sr.adadbj</span>
+                            <h3 class="references__title">Mr.adad</h3>
+                            <ul class="references__contact">
+                                <li>Phone :0890179729819</li>
+                                <li>Email :adaodad@d.ada</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section> -->
+
+            <!--========== LANGUAGES ==========-->
+            <!-- <section class="languages section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages__container">
+                        <ul class="languages__content bd-grid">
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                            <li class="languages__name">
+                                <span class="languages__circle"></span> Indonesia
+                            </li>
+                        </ul>
+                    </div>
+                </section> -->
+
+            <!--========== INTERESTS ==========-->
+            <!-- <section class="interests section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="interests__container bd-grid">
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                        <div class="interests__content">
+                            <i class="bx bx-headphone interests__icon"></i>
+                            <span class="interests__name">Music</span>
+                        </div>
+                    </div>
+                </section> -->
+            <br><span style="height: 200px;"></span>
+        </div>
+
+    </div>
+    <br>
+
+</main>
