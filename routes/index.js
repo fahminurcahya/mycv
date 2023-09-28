@@ -106,8 +106,7 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 router.get("/cv", (req, res) => {
-  const protocol = req.headers["x-forwarded-proto"] || req.protocol;
-  const baseUrl = protocol + "://" + req.get("host");
+  const baseUrl = "";
   res.render("cv", { baseUrl: baseUrl, data: dataCV });
 });
 
@@ -119,6 +118,7 @@ router.get("/cvv", (req, res) => {
 router.get("/portfolio/:name", (req, res) => {
   try {
     const param = req.params.name;
+    console.log(param);
 
     // Parse the JSON data
     const jsonData = [
@@ -368,9 +368,8 @@ router.get("/portfolio/:name", (req, res) => {
 
 router.get("/pdf", async (req, res) => {
   const paramValue = req.query.theme;
-  const protocol = req.headers["x-forwarded-proto"] || req.protocol;
 
-  const baseUrl = protocol + "://" + req.get("host");
+  const baseUrl = req.protocol + "://" + req.get("host");
   const browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox"],
