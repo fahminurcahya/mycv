@@ -106,7 +106,8 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 router.get("/cv", (req, res) => {
-  const baseUrl = req.protocol + "://" + req.get("host");
+  const protocol = req.headers["x-forwarded-proto"] || req.protocol;
+  const baseUrl = protocol + "://" + req.get("host");
   res.render("cv", { baseUrl: baseUrl, data: dataCV });
 });
 
@@ -118,7 +119,6 @@ router.get("/cvv", (req, res) => {
 router.get("/portfolio/:name", (req, res) => {
   try {
     const param = req.params.name;
-    console.log(param);
 
     // Parse the JSON data
     const jsonData = [
@@ -294,6 +294,56 @@ router.get("/portfolio/:name", (req, res) => {
         img: ["/images/course/4.png"],
         features: [],
       },
+      {
+        title: "Website Undangan Digital (begather.id)",
+        description: "-",
+        category: "Web Apps",
+        client: "My Project",
+        year: "2022",
+        pathName: "invitation",
+        url: "-",
+        technology: ["PHP (Code Igniter)", "MySql"],
+        img: [
+          "/images/undangan/1.png",
+          "/images/undangan/2.png",
+          "/images/undangan/3.png",
+        ],
+        features: [
+          "Dasboard Consumer",
+          "Report Pengunjung",
+          "Import nama undangan",
+          "Custom Template",
+          "Send Whatsapp",
+          "halaman mempelai",
+          "informasi acara",
+          "halaman ucapan",
+          "halaman lokasi/google maps",
+          "halaman galerry/album",
+          "halaman cerita",
+          "informasi dompet digital",
+        ],
+      },
+      {
+        title: "Website SSC Karawang",
+        description: "-",
+        category: "Web Apps",
+        client: "My Project",
+        year: "2022",
+        pathName: "ssc",
+        url: "-",
+        technology: ["PHP (Laravel)", "MySql"],
+        img: ["/images/ssc/1.png", "/images/ssc/2.png"],
+        features: [
+          "Company Profile",
+          "Dashboard Admin/guru",
+          "Manage Guru",
+          "Manage Kelas",
+          "Manage Jadwal Tryout",
+          "Manage Soal Tryout",
+          "Report Hasil Tryout",
+          "Tryout Online PG/Essay",
+        ],
+      },
 
       // Company profile ssc karawang,
       // Game Pengenalan huruf hijaiyah,
@@ -318,8 +368,9 @@ router.get("/portfolio/:name", (req, res) => {
 
 router.get("/pdf", async (req, res) => {
   const paramValue = req.query.theme;
+  const protocol = req.headers["x-forwarded-proto"] || req.protocol;
 
-  const baseUrl = req.protocol + "://" + req.get("host");
+  const baseUrl = protocol + "://" + req.get("host");
   const browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox"],
