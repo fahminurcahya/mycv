@@ -296,7 +296,7 @@ router.get("/portfolio/:name", (req, res) => {
       },
       {
         title: "Website Undangan Digital (begather.id)",
-        description: "-",
+        description: "",
         category: "Web Apps",
         client: "My Project",
         year: "2022",
@@ -325,7 +325,7 @@ router.get("/portfolio/:name", (req, res) => {
       },
       {
         title: "Website SSC Karawang",
-        description: "-",
+        description: "",
         category: "Web Apps",
         client: "My Project",
         year: "2022",
